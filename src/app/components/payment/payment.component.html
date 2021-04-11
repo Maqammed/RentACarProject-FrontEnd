@@ -1,0 +1,119 @@
+<div class="row">
+  
+  <div class="col-md-6">
+    <div class="card rounded-0">
+      <div class="card-header fw-bold text-center lead py-3">Billing Information</div>
+
+      <div class="card-body p-0">
+        <table class="table table-striped">
+          <tbody>
+
+            <tr>
+              <th>User</th>
+              <td>{{ getCurrentCustomer().firstName }} {{ getCurrentCustomer().lastName }}</td>
+            </tr>
+
+            <tr>
+              <th>Car Brand/Model</th>
+              <td>{{ carDetail.brandName }} {{carDetail.carName}}</td>
+            </tr>
+
+            <tr>
+              <th>Rent Date</th>
+              <td>{{rental.rentDate}}</td>
+            </tr>
+
+            <tr>
+              <th>Return Date</th>
+              <td>{{rental.returnDate}}</td>
+            </tr>
+
+            <tr>
+              <th>Total Price</th>
+              <td>{{ calcTotalPrice() | currency }} </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card rounded-0">
+      <div class="card-header fw-bold text-center lead py-3">Card Information</div>
+
+      <div class="card-body">
+        <form [formGroup]="paymentAddForm" (ngSubmit)="pay()">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="cardOnName"  placeholder="cardOnName" formControlName="cardOnName">
+            <label for="cardOnName">Name On The Card</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="cardNumber" placeholder="cardNumber" formControlName="cardNumber">
+            <label for="cardNumber">Card Number</label>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="cardValidDate" placeholder="cardValidDate" formControlName="cardValidDate">
+                <label for="cardValidDate">Validity Date</label>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="cardCvv" placeholder="cardCvv" formControlName="cardCvv">
+                <label for="cardCvv">The three numbers on the back of the card</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-check">
+            <input #saveUserNameCheckBox class="form-check-input" type="checkbox"  id="saveUserNameCheckBox" 
+            [checked]="saveUsername" 
+            (change)="onSaveUsernameChanged(saveUserNameCheckBox.checked)"
+            >
+            <label class="form-check-label" for="flexCheckChecked">
+              Save My Card Information
+            </label>
+          </div>
+          <div class="text-end">
+            <button type="submit" class="btn btn-primary">Pay</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+       <table class="table" >
+         <tbody>
+           <thead>My Registered Cards</thead>
+           <tr>
+             <th>Card Id</th>
+             <th>Card Number</th>
+             <th>Name On The Card</th>
+             <th>Validity Date</th>
+             <th>Card CVV</th>
+             <th>Card Type</th>
+             <th></th>
+
+            </tr>
+           <tr *ngFor="let card of cards"  >
+             <td>{{card.id}}</td>
+             <td>{{card.cardNumber}}</td>
+             <td>{{card.cardOnName}}</td>
+             <td>{{card.cardValidDate}}</td>
+             <td>{{card.cardCvv}}</td>
+             <td>{{card.cardType}}</td>
+             <td (click)="setCurrentCard(card.id)"><button class="btn btn-info">Seç</button></td>
+            </tr>
+         </tbody>
+       </table>
+    </div>
+  </div>
+
+</div>

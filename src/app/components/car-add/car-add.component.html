@@ -1,0 +1,68 @@
+<br>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Add Car</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                   
+                    <div class="form-floating mb-3">
+                
+                        <select class="form-select" id="brands" formControlName="brandId">
+       
+                            <option *ngFor="let brand of brands"  [value]="brand.brandId">
+                               {{brand.brandName}}
+                            </option>
+                         </select>
+                         <label for="brands">Brands</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="colors" formControlName="colorId">          
+                               <option *ngFor="let color of colors"  [value]="color.colorId">
+                                  {{ color.colorName }}
+                               </option>
+                            </select>
+                            <label for="colors">Colors</label>
+                         </div>
+
+                        <div class="mb-3">
+                            <label for="modelYear">Model Year</label>
+                            <div class="form-group">
+                                <input type="number" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Year"/>
+                            </div></div>
+
+                            <div class="mb-3">
+                                <label for="dailyPrice">Daily Price</label>
+                                <div class="form-group">
+                                    <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Price"/>
+                                </div></div>
+
+                                <div class="mb-3">
+                                    <label for="description">Description</label>
+                                    <div class="form-group">
+                                        <input type="text" id="description" formControlName="description" class="form-control" placeholder="Description"/>
+                                    </div></div>
+
+                                    <div class="mb-3">
+                                        <label for="carName">Model Name</label>
+                                        <div class="form-group">
+                                            <input type="text" id="carName" formControlName="carName" class="form-control" placeholder="Model"/>
+                                        </div>
+                                    </div>
+
+                            
+
+                </form>
+                <div class="mb-3">
+                    <label for="carAdd"></label>
+                    <div class="form-group">
+                        <button  (click)="carAdd()"  class="btn btn-secondary">Add</button>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

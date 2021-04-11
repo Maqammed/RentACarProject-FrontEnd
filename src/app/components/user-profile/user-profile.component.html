@@ -1,0 +1,110 @@
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3><strong>Update User Profil</strong></h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="userUpdateForm">
+
+                        <div class="mb-3">
+                            <label for="firstName">Name</label>
+                            <div class="form-group">
+                                <input type="text" id="firstName" formControlName="firstName" class="form-control"
+                                    placeholder="Your Name" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lastName">Surname</label>
+                            <div class="form-group">
+                                <input type="text" id="lastName" formControlName="lastName" class="form-control"
+                                    placeholder="Your Surname" />
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <div class="form-group">
+                                <input type="text" id="email" formControlName="email" class="form-control"
+                                    placeholder="Your Email" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="userUpdate"></label>
+
+                            <button (click)="userUpdate()" class="btn btn-secondary">Update</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3><strong>Company Update</strong></h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="customerUpdateForm">
+
+                        <div class="mb-3">
+                            <label for="companyName">Company Name</label>
+                            <div class="form-group">
+                                <input type="text" id="companyName" formControlName="companyName" class="form-control"
+                                    placeholder="Your Company Name" />
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-secondary" (click)="customerUpdate()">Update</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <!-- <button class="btn btn-primary" routerLink="password-change">Şifremi Değiştir</button> -->
+
+        <div class="col-md-12">
+            
+                <div class="card">
+                    <div class="card-header">
+                        <h3><strong>Update Password</strong></h3>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="passwordChangeForm">
+
+                            <div class="mb-3">
+                                <label for="oldPassword">Current Password</label>
+                                <div class="form-group">
+                                    <input type="password" id="oldPassword" formControlName="oldPassword" class="form-control"
+                                        placeholder="Your Last Password" />
+                                </div>
+                            </div>
+    
+                            <div class="mb-3">
+                            <label for="newPassword">New Password</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" formControlName="newPassword"   id="newPassword" placeholder="Your New Password" >
+                              </div>
+                              </div>
+
+                           
+                            <button class="btn btn-secondary" (click)="passwordChange()" >Update</button>
+    
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+
+</div>

@@ -1,0 +1,52 @@
+<div>
+
+    <table class="table table-hover table-striped mt-4 border">
+            <thead>
+        <tr>
+           <th>Brand Id</th>
+           <th>Brand</th>
+           <th></th>
+      
+  
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let brand of brands"  routerLink="/brands/{{brand.brandId}}">
+           <th>{{ brand.brandId }}</th>
+           <th>{{ brand.brandName }}</th>
+           <td><button class="btn btn-secondary">Edit</button></td>
+
+        </tr>
+        </tbody>
+     </table>
+</div>
+
+
+
+<br>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Add Brand</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="brandAddForm">
+                    <div class="mb-3">
+                    <label for="brandName">Brand Name</label>
+                    <div class="form-group">
+                        <input type="text" id="brandName" formControlName="brandName" class="form-control" placeholder="Name"/>
+                    </div></div>
+                </form>
+
+                <div class="form-group">
+                    <button  (click)="BrandAdd()"  class="btn btn-secondary">Add</button>
+                </div>
+
+            </div>
+            <div class="mb-3">
+                <label for="brandAdd"></label>
+                </div>
+        </div>
+    </div>
+</div>

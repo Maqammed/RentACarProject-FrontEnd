@@ -1,0 +1,43 @@
+
+ <div *ngIf="dataLoaded==false" class="spinner-border" role="status">
+   <span class="visually-hidden">Loading...</span>
+ </div>
+ 
+
+
+
+
+ <div class="mb-3">
+   <label for="filterText" class="form-label">Search Car</label>
+   <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+    placeholder="Car Name">
+ </div>
+ <div *ngIf="filterText" class="alert alert-secondary">
+ {{filterText}} Searced
+ </div> 
+
+
+   <div class="row">
+
+ <div class="card" style="width: 18rem; margin-right: 2rem;" *ngFor="let car of carDetails | filterPipe:filterText"  routerLink="/cars/detail/{{ car.carId }}">
+  <img src="https://localhost:44342/{{car.imagePath}}" class="card-img-top" alt="...">
+
+   <div class="card-body">
+     <p class="card-title">Brand <strong>{{car.brandName}}</strong></p>
+     <p class="card-text">Description <strong>{{ car.description }}</strong></p>
+   </div>
+   <ul class="list-group list-group-flush">
+     <li class="list-group-item">Name <strong>{{car.carName}}</strong></li>
+     <li class="list-group-item">Color <strong>{{car.colorName}}</strong></li>
+     <li class="list-group-item">Model Year <strong>{{car.modelYear}}</strong></li>
+   </ul>
+   <div class="card-body">
+      <ul class="list-group list-group-flush">
+         <li class="list-group-item">Daily Price <strong>{{car.dailyPrice | currency}}</strong></li>
+            <li class="list-group-item"><Button class="btn btn-secondary" routerLink="/cars/update/{{car.carId}}">    Update    </Button></li>
+
+         </ul>
+         </div>
+
+ </div>
+</div>

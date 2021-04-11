@@ -1,0 +1,47 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Register</h5>
+            </div>
+
+            <div class="card-body">
+                <form [formGroup]="registerForm">
+
+                    <div class="mb-3">
+                        <label for="firstName">Name</label>
+                        <div class="form-group">
+                            <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Your Name" appTextStyle/>
+                        </div></div>
+
+                        <div class="mb-3">
+                            <label for="lastName">Surname</label>
+                            <div class="form-group">
+                                <input type="email" id="lastName" formControlName="lastName" class="form-control" placeholder="Your Surname" appTextStyle/>
+                            </div></div>
+
+
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <div class="form-group">
+                                <input type="email" id="email" formControlName="email" class="form-control" placeholder="Your Email" appTextStyle/>
+                            </div></div>
+
+                           <div class="mb-3">
+                            <label for="password">Password</label>
+                                <div class="form-group">
+                                    <input type="password" id="password" formControlName="password" class="form-control"  placeholder="Your Password" appTextStyle/>
+                            </div>
+                            
+                            </div>
+                </form>
+                <div class="mb-3">
+                    <label for="colorAdd"></label>
+                    <div class="form-group">
+                        <button  (click)="register()"  class="btn btn-secondary">Register</button>
+                    </div></div>
+            </div>     
+           
+        </div>
+    </div>
+</div>

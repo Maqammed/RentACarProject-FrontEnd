@@ -1,0 +1,41 @@
+<br><div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+   <span class="visually-hidden">Loading...</span>
+ </div>
+
+
+    <!-- <ul> -->
+<div class="mb-3">
+      <label for="filterColorText" class="form-label">Seacrh Color</label>
+      <input type="text" [(ngModel)]="filterText" class="form-control" id="filterColorText"
+       placeholder="Color Name">
+    </div>
+    <div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} Searched..
+    </div> 
+
+    <select class="form-select" size="4" >
+      <option  routerLink="/colors" (click)="resetCurrentColor()">All Color</option>
+      <option *ngFor="let color of colors |colorPipe:filterText"  (click)="setCurrentColor(color.colorId)">{{color.colorName}}</option>
+    </select><br>
+    <button class="btn btn-secondary rounded-0" routerLink="/colors/add">Edit</button>
+
+    <!-- <div class="form-group">
+      <input type="text" class="form-control" placeholder="Renk Ekle"><br>
+      <button type="button" class="btn btn-primary">Renk Ekle</button>
+      
+    </div> -->
+
+<!-- <li routerLink="/colors"
+ (click)="resetCurrentColor()" 
+ class="{{ listAllBrandCss }}" 
+ style="background-color: #EEE">
+Tümünü Listele
+</li>
+
+<li *ngFor="let color of colors | colorPipe:filterText"
+routerLink="/colors/{{ color.colorId }}"
+(click)="setCurrentColor(color.colorId)"
+[class]="getCurrentColorClass(color.colorId)">
+{{ color.colorName }}
+</li>
+</ul> -->

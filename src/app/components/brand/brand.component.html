@@ -1,0 +1,54 @@
+<div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+   <span class="visually-hidden">Loading...</span>
+ </div>
+ <!-- <ul> -->
+
+   <div class="mb-3">
+      <label for="filterBrandText" class="form-label">Search Brand</label>
+      <input type="text" [(ngModel)]="filterText" class="form-control" id="filterBrandText"
+       placeholder="Brand Name">
+    </div>
+    <div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} Searched..
+    </div> 
+
+
+    <select class="form-select" size="4" >
+      <option  routerLink="/brands" (click)="resetCurrentBrandId()">All Brands</option>
+      <option *ngFor="let brand of brands |brandPipe:filterText"  (click)="setCurrentBrand(brand.brandId)">{{brand.brandName}}</option>
+    </select>
+    <br>
+    
+    <button class="btn btn-secondary rounded-0" routerLink="/brands/add">Edit</button>
+
+
+    <!-- <input type="text"         
+    (ngModelChange)="filterItem($event)" 
+    [(ngModel)]="filterText">
+    <br>
+<select 
+     #selectList
+     [(ngModel)]="myDropDown" 
+    (ngModelChange)="onChangeofOptions($event)">
+    <option value="empty"></option>
+    <option *ngFor="let item of brands">         
+        {{item.brandName}}
+    </option>    
+</select>
+<p>items {{ items | json }}</p> -->
+
+
+
+ <!-- <li routerLink="/brands" 
+(click)="resetCurrentBrandId()" 
+ class="{{ listAllBrandCss }}" 
+style="background-color: #EEE">
+Tümünü Listele
+</li>
+ <li *ngFor="let brand of brands |brandPipe:filterText" 
+ routerLink="/brands/{{ brand.brandId }}" 
+(click)="setCurrentBrand(brand.brandId)" s
+[class]="getCurrentBrandClass(brand.brandId)">
+ {{ brand.brandName }}
+</li>
+</ul> -->

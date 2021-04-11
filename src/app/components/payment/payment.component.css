@@ -1,0 +1,15 @@
+input{
+border-radius: 0;
+}
+
+input:focus{
+  box-shadow: none;
+  border-color: #111;
+  }
+
+  button{
+    padding-right: 18px;
+    padding-left: 18px;
+    font-weight: bold;
+    border-radius: 0;
+  }

@@ -1,0 +1,55 @@
+<!-- <form [formGroup]="colorUpdateForm" (ngSubmit)="colorUpdate()" >
+
+    <div class="mb-3">
+        <input type="text" class="form-control" formControlName="colorName">
+    </div>
+
+    <div class="mb-3">
+        <input type="text" class="form-control" formControlName="colorCode">
+    </div>
+
+    <button class="btn btn-primary" >Güncelle</button>
+</form> -->
+
+
+<div class="row mt-4">
+    <div class="col-lg-9">
+
+        <div class="card">
+            <div class="card-header fw-bold">
+                Color Update
+            </div>
+            <div class="card-body">
+                <form autocomplete="off" *ngIf="color" [formGroup]="colorUpdateForm" (ngSubmit)="colorUpdate()">
+
+
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="colorName" placeholder="colorName"
+                            formControlName="colorName">
+                        <label for="colorName">Color Name</label>
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="colorCode" placeholder="colorCode"
+                            formControlName="colorCode">
+                        <label for="colorCode">Color Code</label>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-secondary rounded-0 px-4 fw-bold"> Update </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-3">
+        <div class="d-grid">
+            <button class="btn btn-secondary rounded-0" routerLink="/colors/add">
+                <i class="bi-list me-1"></i> Back to Color List 
+            </button>
+        </div>
+    </div>
+</div>
